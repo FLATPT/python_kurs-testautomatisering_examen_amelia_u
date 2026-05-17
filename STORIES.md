@@ -9,7 +9,7 @@ Den riktar sig till studenter och har som mål att öka studenters läsandet gen
 ---
 
 ### US_1: Välkomnstmeddelande
-**Som en** användare, **vill jag** se ett välkommsmeddelande när jag klickar på knappen "Katalog", **så att** jag känner mig välkommen och förstår syftet med sidan.
+**Som en** användare, **vill jag** se ett välkomstmeddelande när jag klickar på knappen "Katalog", **så att** jag känner mig välkommen och förstår syftet med sidan.
 
 #### US_2: Visa boklista   
 **Som en** användare, **vill jag** se en lista en katalog/lista med böcker, **så att** kan få en överblick över tillgängliga böcker.
