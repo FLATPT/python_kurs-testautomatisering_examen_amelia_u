@@ -1,2 +1,5 @@
 pytest
+pytest-playwright
 flake8
+playwright
+behave
