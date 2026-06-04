@@ -5,6 +5,7 @@ from src.laslistan.favorite_books import FavoriteBooks
 
 pytestmark = pytest.mark.integration
 
+
 def test__bookstore__toggleFavorite__adds_book_to_favorite_books(mocker):
     bookstore = BookStore()
     favorite_books = FavoriteBooks()
@@ -22,4 +23,3 @@ def test__bookstore__toggleFavorite__adds_book_to_favorite_books(mocker):
     add_favorite_spy.assert_called_once_with(book)
 
     assert book in favorite_books
-

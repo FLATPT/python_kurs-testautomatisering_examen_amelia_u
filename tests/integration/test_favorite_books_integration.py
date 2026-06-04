@@ -5,6 +5,7 @@ from src.laslistan.favorite_books import FavoriteBooks
 
 pytestmark = pytest.mark.integration
 
+
 def test__favorite_books__add_book_exists_in_bookstore(mocker):
     bookstore = BookStore()
     favorite_books = FavoriteBooks()
@@ -18,5 +19,3 @@ def test__favorite_books__add_book_exists_in_bookstore(mocker):
 
     assert book in bookstore.books
     assert book in favorite_books
-
-

@@ -6,6 +6,7 @@ class Book:
         self.title = title
         self.favorite = False
 
+
 class BookStore:
 
     def __init__(self):
@@ -19,5 +20,3 @@ class BookStore:
         for book in self.books:
             if book.id == book_id:
                 book.favorite = not book.favorite
-
-
