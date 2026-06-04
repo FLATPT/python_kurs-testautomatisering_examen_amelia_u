@@ -3,7 +3,7 @@
 ### Fråga 1: Vad är skillnaden mellan enhetstest, integrationstest, regressionstest och prestandatest?
 **Enhetstest:** Testar varje metod, klass eller funktion, i en specifik del av koden, för sig. Syftet med enhetstester är att verifiera att varje del fungerar som förväntat utan beroenden till andra delar av applikationen.  
 **Integrationstest:** Testar hur olika moduler eller tjänster fungerar tillsammans för att säkerställa att applikationens olika delarna fungerar korrekt som en helhet.  
-**Regressionstest:** Testar specifik funktionalitet antigen i förebyggande syfte eller efter att en bug har upptäckts. Syftet är att kontrollera att nya kodändringar inte har introducerat buggar eller problem i befintlig fungerande funktionalitet och säkerställer att applikationen fortsätter att fungera som den ska.
+**Regressionstest:** Testar specifik funktionalitet antigen i förebyggande syfte eller efter att en bug har upptäckts. Syftet är att kontrollera att nya kodändringar inte har introducerat buggar eller problem i befintlig fungerande funktionalitet och säkerställer att applikationen fortsätter att fungera som den ska.  
 **Prestandatest:** Testar hur snabbt, effektivt och stabilt ett system fungerar under olika belastningar och förhållanden. Prestationstester testar till exempel systemets svarstid, stabilitet vid högbelastning, minnesanvändning och skalbarhet.   
 ___
 

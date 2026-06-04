@@ -4,7 +4,8 @@ from playwright.sync_api import sync_playwright
 def before_all(context):
     # Start Playwright and the browser - close it in after_all
     context.playwright = sync_playwright().start()
-    context.browser_type = context.playwright.chromium
+    context.browse
+    r_type = context.playwright.chromium
     context.browser = context.browser_type.launch(headless=True)
 
 # Runs at the start of each scenario

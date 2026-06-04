@@ -27,7 +27,7 @@ pytest -v -m integration
 
 Filen `requirements.txt` innehåller alla paket som ska importeras.
 
-Filen pythion-ci.yml Implementera CI för projektet, så att alla tester körs automatiskt när man pushar en ny version till main-branchen i GitHub.
+Filen 'pythion-ci.yml' (.github/workflows/python-ci.yml) implementerar CI för projektet, så att alla tester körs automatiskt när man pushar en ny version till main-branchen i GitHub.
 
 
 # TODO:
