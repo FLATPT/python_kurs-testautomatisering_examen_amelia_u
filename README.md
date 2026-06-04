@@ -16,9 +16,14 @@ klassen FavoriteBooks ska ha följande metoder:
 add(book)
 remove(book)
 
-Jag har försökt lösa samtliga punkter i Grundkraven men hann tyvärr inte göra klart steps delen. 
 
-2) 
+2) Nedan följer instruktioner för hur man startar projektet och kör testerna:
+
+För att startaprojekter:
+```commandline
+behave 
+```
+
 **Kör test case i terminalen:**
 ```bash
 pytest -v -m unit
