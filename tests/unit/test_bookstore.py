@@ -44,7 +44,7 @@ def test__bookstore__toggleFavorite__marks_book_as_favorite():
     bookstore.addBook(book)
     bookstore.toggleFavorite(1)
 
-    assert bookstore.books[1].favorite   # Kontrollera att boken är markerad som favorit
+    assert bookstore.books[0].favorite   # Kontrollera att boken är markerad som favorit
 
 
 def test__bookstore__toggleFavorite__unmarks_book_as_favorite():

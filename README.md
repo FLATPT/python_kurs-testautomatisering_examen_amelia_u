@@ -25,6 +25,13 @@ pytest -v -m unit
 pytest -v -m integration
 ```
 
+**Kör flake8(Linting) för testerna i terminalen:**
+```bash
+flake8 src tests
+
+```
+
+
 Filen `requirements.txt` innehåller alla paket som ska importeras.
 
 Filen 'pythion-ci.yml' (.github/workflows/python-ci.yml) implementerar CI för projektet, så att alla tester körs automatiskt när man pushar en ny version till main-branchen i GitHub.
