@@ -52,10 +52,7 @@ Den riktar sig till studenter och har som mål att öka studenters läsandet gen
 ### US_2: Tom sida när inga favoritböcker har markerats
 **Som en** användare, **vill jag** se en tom sida om jag inte har några favoritböcker, **så att** jag kan se att det stämmer med att jag inte valde några böcker.
 
-### US_3: Rader visas i olika färger
-**Som en** användare, **vill jag** att raderna i listan över favoritböcker visas i olika färger, **så att** jag kan lättare skilja på dem.
-
-### US_4: Listan uppdateras när jag markerar/avmarkerar en bok som favorit
+### US_3: Listan uppdateras när jag markerar/avmarkerar en bok som favorit
 **Som en** användare, **vill jag** att listan över favoritböcker uppdateras i realtid när jag markerar eller avmarkerar en bok som favorit i "Katalog" vyn, **så att** jag kan se mina favoritböcker utan att behöva uppdatera sidan manuellt.
 
 
