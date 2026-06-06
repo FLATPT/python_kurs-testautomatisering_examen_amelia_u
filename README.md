@@ -19,10 +19,12 @@ remove(book)
 
 2) Nedan följer instruktioner för hur man startar projektet och kör testerna:
 
-För att startaprojekter:
+För att starta:
 ```commandline
-behave 
+behave --format pretty
 ```
+Projektet använder behave för att köra Gherkin-kodade testfall.
+
 
 **Kör test case i terminalen:**
 ```bash
@@ -42,6 +44,3 @@ Filen `requirements.txt` innehåller alla paket som ska importeras.
 Filen 'pythion-ci.yml' (.github/workflows/python-ci.yml) implementerar CI för projektet, så att alla tester körs automatiskt när man pushar en ny version till main-branchen i GitHub.
 
 
-# TODO:
- - Implementera steps för E2E-testning med Playwright och BDD
- - Implementera E2E-testning med Playwright och BDD

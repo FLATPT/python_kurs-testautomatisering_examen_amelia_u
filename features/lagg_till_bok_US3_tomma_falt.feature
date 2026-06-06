@@ -1,14 +1,12 @@
-Feature: Felmeddelande vid tomma fält
+Feature: Formuläret sparas inte vid tomma fält
 
-Scenario:  Användaren skickar formuläret utan titel
-    Given att användaren är på fliken "Lägg till bok"
+Scenario: Användaren skickar formuläret utan titel
+    Given Användaren är på Lägg till bok-sidan
     When användaren fyller i "Författare" med "Kent Backdoor"
-    And användaren klickar på "Lägg till ny bok"
-    Then ska ett felmeddelande visas om att fältet "Titel" inte får vara tomt
-    And ska boken inte läggas till i katalogen
+    Then Lägg till ny bok-knappen ska vara inaktiverad
+
 
 Scenario:  Användaren skickar formuläret utan författare
-    Given att användaren är på fliken "Lägg till bok"
+    Given Användaren är på Lägg till bok-sidan
     When användaren fyller i "Titel" med "Why Your Tests Are Lying to You"
-    And användaren klickar på "Lägg till ny bok"
-    Then ska ett felmeddelande visas om att fältet "Författare"
+    Then Lägg till ny bok-knappen ska vara inaktiverad

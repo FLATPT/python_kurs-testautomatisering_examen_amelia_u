@@ -1,0 +1,3 @@
+# Examination: Testautomatisering och testverktyg, NBIHAK TAPHT25D
+### Student: Amélia Uebel
+### Länk till min uppgift i GITHUB: https://github.com/FLATPT/python_kurs-testautomatisering_examen_amelia_u.git
