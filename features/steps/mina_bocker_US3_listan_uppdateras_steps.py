@@ -1,4 +1,4 @@
-from behave import given,when, then
+from behave import given, when, then
 from playwright.sync_api import expect
 from src.laslistan.favorite_books import FavoriteBooks
 
@@ -46,6 +46,7 @@ def step_bok_visas_i_favoritlistan(context, book_title):
     assert favorit_bok_locator.count() > 0, f"Boken '{book_title}' hittades inte i favoritlistan"
     assert favorit_bok_locator.first.is_visible(), f"Boken '{book_title}' är inte synlig i favoritlistan"
 
+
 @when(u'användaren avmarkerar "{book_title}" som favorit')
 def step_avmarkera_bok_som_favorit(context, book_title):
     book_locator = context.page.get_by_test_id(f"star-{book_title}")
@@ -61,6 +62,7 @@ def step_avmarkera_bok_som_favorit(context, book_title):
     if hasattr(context, "favorite_books") and book_title in context.favorite_books:
         context.favorite_books.remove(book_title)
 
+
 @then(u'ska "{book_title}" inte visas i favoritlistan')
 def step_bok_visas_inte_i_favoritlistan(context, book_title):
     context.page.get_by_test_id("favorites").click(force=True)
@@ -72,4 +74,3 @@ def step_bok_visas_inte_i_favoritlistan(context, book_title):
         f"Boken '{book_title}' visas fortfarande i favoritlistan"
     assert book_title not in context.favorite_books, \
         f"Boken '{book_title}' finns fortfarande i FavoriteBooks"
-

@@ -1,4 +1,4 @@
-from behave import given, when, then
+from behave import then
 
 
 @then(u'knappen med texten "Lägg till ny bok" visas')

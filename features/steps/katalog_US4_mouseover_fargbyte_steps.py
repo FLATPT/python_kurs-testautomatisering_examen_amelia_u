@@ -19,7 +19,6 @@ def step_mouseover_nook_row(context):
     context.page.wait_for_timeout(500)
 
 
-
 @then(u'raden ändrar bakgrundsfärg för att indikera att den är markerad')
 def step_raden_ändrar_bakgrundsfärg(context):
     # Hämta den aktuella bakgrundsfärgen på den markerade raden

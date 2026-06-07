@@ -1,5 +1,4 @@
 from behave import given, when, then
-from src.laslistan.bookstore import Book, BookStore
 
 
 @given(u'att katalogen innehåller boken "{book_title}" av "{book_author}"')
@@ -10,7 +9,7 @@ def step_katalog_innehaller_bok(context, book_title, book_author):
     context.page.get_by_test_id("add-input-author").fill(book_author)
     context.page.get_by_test_id("add-submit").click()
     context.page.wait_for_load_state("domcontentloaded")
-    
+
 
 @when(u'användaren fyller i "Titel" med "{book_title}"')
 def step_fyll_i_titel(context, book_title):

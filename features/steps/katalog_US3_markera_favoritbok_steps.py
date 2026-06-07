@@ -1,5 +1,6 @@
 from behave import given, when, then
 
+
 @given(u'att en boklista lista visas på Katalog-sidan')
 def step_show_book_list(context):
     context.page.get_by_test_id("catalog")

@@ -16,7 +16,7 @@ def step_bok_markerad_favorit(context):
             context.page.get_by_test_id("favorites").click()
             context.page.wait_for_load_state("domcontentloaded")
             context.fav_book_locator.first.wait_for(state="visible")
-    assert context.fav_book_locator.count() > 0, f"Ingen favoritbok visas"
+    assert context.fav_book_locator.count() > 0, "Ingen favoritbok visas"
 
 
 @then(u'en ordnade lista över favoritböcker visas')
@@ -36,4 +36,4 @@ def step_favoritbocker_visas(context):
         context.page.wait_for_load_state("domcontentloaded")
         context.fav_book_locator.first.wait_for(state="visible")
         # Gå till "Mina böcker" sidan visa en ordnad lista på markerade favorit böckerna
-        assert book_list.count() > 0, f"Ingen ordnad boklista visas"
+        assert book_list.count() > 0, "Ingen ordnad boklista visas"

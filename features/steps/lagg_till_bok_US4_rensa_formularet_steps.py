@@ -13,6 +13,7 @@ def step_klicka_lagg_till_ny_bok(context):
     assert add_button.is_enabled(), "Knappen 'Lägg till ny bok' är inaktiverad"
     add_button.click()
 
+
 @then(u'boken sparas i katalogen')
 def step_sparas_i_katalogen(context):
     book_title = "Why Your Tests Are Lying to You"
@@ -23,6 +24,7 @@ def step_sparas_i_katalogen(context):
     books.first.wait_for(state="visible")
     assert books.count() > 0, f"Boken '{book_title}' sparades inte i katalogen"
     assert author.count() > 0, f"Författaren '{book_author}' sparades inte i katalogen"
+
 
 @then(u'Formuläret rensas/återställs så att fälten "Titel" och "Författare" är tomma')
 def step_formularet_rensas(context):
