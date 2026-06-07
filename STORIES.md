@@ -64,8 +64,6 @@ Den riktar sig till studenter och har som mål att öka studenters läsandet gen
 ### US_1: Visa statistik över antal böcker i boklistan
 **Som en** användare, **vill jag** se en statistik över det totala antalet böcker i boklistan när jag klickar på knappen "Statistik", **så att** jag kan få en överblick över hur många böcker som finns i katalogen.
 
-### US_2: Visa statistik över antal favoritböcker
-**Som en** användare, **vill jag** se en statistik över det totala antalet favoritböcker när jag klickar på knappen "Statistik", **så att** jag kan få en överblick över hur många böcker användarna har markerat som favoriter.
 
 
 
