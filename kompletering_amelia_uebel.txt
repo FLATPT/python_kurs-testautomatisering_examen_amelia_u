@@ -1,0 +1,127 @@
+# Examination: Testautomatisering och testverktyg, NBIHAK TAPHT25D
+### Student: Amélia Uebel
+### Länk till min uppgift i GITHUB: https://github.com/FLATPT/python_kurs-testautomatisering_examen_amelia_u.git
+
+1. CI är finns i
+https://github.com/FLATPT/python_kurs-testautomatisering_examen_amelia_u/blob/master/.github/workflows/python-ci.yml
+
+
+2. Step-filer för alla features finns i
+https://github.com/FLATPT/python_kurs-testautomatisering_examen_amelia_u/tree/master/features/steps
+
+
+3. Samtliga tester blir gröna när jag kör "behave" (commandline: behave --format pretty)
+
+Feature: Välkomstmeddelande på Katalog sidan # features/katalog_US1_valkomstmeddelande.feature:1
+
+  Scenario: Välkomstmeddelande visas när användaren är på Katalog-knappen  # features/katalog_US1_valkomstmeddelande.feature:3
+    Given Användaren är på hemsidan Läslistan                              # features/steps/common_steps.py:4 0.854s
+    When Katalog-knappen är inaktiverad                                    # features/steps/katalog_US1_valkomstmeddelande_steps.py:4 0.032s
+    Then Användaren är på Katalog-sidan                                    # features/steps/common_steps.py:10 0.001s
+    And ett välkomstmeddelande visas på skärmen                            # features/steps/common_steps.py:62 0.016s
+
+Feature: Visa boklista i katalogen # features/katalog_US2_visa_boklista.feature:1
+
+  Scenario: Boklistan visas när användaren är på Katalog-sidan  # features/katalog_US2_visa_boklista.feature:3
+    Given Användaren är på hemsidan Läslistan                   # features/steps/common_steps.py:4 0.735s
+    When Användaren är på Katalog-sidan                         # features/steps/common_steps.py:10 0.003s
+    Then en boklistan visas på skärmen                          # features/steps/katalog_US2_visa_boklista_steps.py:4 0.033s
+
+Feature: Markera favoritbok med hjärtikon # features/katalog_US3_markera_favoritbok.feature:1
+
+  Scenario: Användaren markerar en bok som favoriter                           # features/katalog_US3_markera_favoritbok.feature:3
+    Given att en boklista lista visas på Katalog-sidan                         # features/steps/katalog_US3_markera_favoritbok_steps.py:4 0.028s
+    And boken "The Bugs are Coming" inte är markerad som favorit               # features/steps/common_steps.py:69 0.008s
+    When Användaren klickar på raden där "The Bugs are Coming" finns på listan # features/steps/katalog_US3_markera_favoritbok_steps.py:11 0.550s
+    Then ett hjärtikon visas bredvid "The Bugs are Coming" i boklistan         # features/steps/katalog_US3_markera_favoritbok_steps.py:19 0.028s
+    And markerar på så sätt boken "The Bugs are Coming" som favorit            # features/steps/katalog_US3_markera_favoritbok_steps.py:28 0.008s
+
+Feature: Rader ändrar färg vid mouseover # features/katalog_US4_mouseover_fargbyte.feature:1
+
+  Scenario: En rad ändrar färg när musen förs över den                   # features/katalog_US4_mouseover_fargbyte.feature:3
+    Given att Katalog-sidan visar en lista av böcker                     # features/steps/katalog_US4_mouseover_fargbyte_steps.py:4 0.040s
+    When användaren för musen över en rad i boklistan                    # features/steps/katalog_US4_mouseover_fargbyte_steps.py:13 0.558s
+    Then raden ändrar bakgrundsfärg för att indikera att den är markerad # features/steps/katalog_US4_mouseover_fargbyte_steps.py:22 0.038s
+
+Feature: Visa formulär för att lägga till en ny bok # features/lagg_till_bok_US1_visa_formular.feature:1
+
+  Scenario: Formuläret visas när användaren klickar på Lägg till bok  # features/lagg_till_bok_US1_visa_formular.feature:3
+    Given Användaren är på hemsidan Läslistan                         # features/steps/common_steps.py:4 0.697s
+    When Användaren klickar på Lägg till bok-knappen                  # features/steps/common_steps.py:24 0.092s
+    Then formulär med fält etiketten "Titel" och "Författare" visas   # features/steps/common_steps.py:45 0.008s
+    And knappen med texten "Lägg till ny bok" visas                   # features/steps/lagg_till_bok_US1_visa_formular_steps.py:4 0.000s
+
+Feature: Felmeddelande saknas vid tillägg av bok som redan finns i katalogen # features/lagg_till_bok_US2_dublettcheck.feature:1
+
+  Scenario: Användaren försöker lägga till en bok som redan finns i katalogen               # features/lagg_till_bok_US2_dublettcheck.feature:3
+    Given Användaren är på Lägg till bok-sidan                                              # features/steps/common_steps.py:30 0.080s
+    And att katalogen innehåller boken "Why Your Tests Are Lying to You" av "Kent Backdoor" # features/steps/lagg_till_bok_US2_dublettcheck_steps.py:4 0.060s
+    When användaren fyller i "Titel" med "Why Your Tests Are Lying to You"                  # features/steps/lagg_till_bok_US2_dublettcheck_steps.py:14 0.013s
+    And användaren fyller i "Författare" med "Kent Backdoor"                                # features/steps/common_steps.py:38 0.009s
+    And användaren klickar på "Lägg till ny bok"-knappen                                    # features/steps/lagg_till_bok_US2_dublettcheck_steps.py:21 0.036s
+    Then boken "Why Your Tests Are Lying to You" sparas i katalogen igen                    # features/steps/lagg_till_bok_US2_dublettcheck_steps.py:29 0.040s
+    And felmeddelande om att boken redan finns i katalogen visas inte                       # features/steps/lagg_till_bok_US2_dublettcheck_steps.py:37 0.003s
+
+Feature: Formuläret sparas inte vid tomma fält # features/lagg_till_bok_US3_tomma_falt.feature:1
+
+  Scenario: Användaren skickar formuläret utan titel          # features/lagg_till_bok_US3_tomma_falt.feature:3
+    Given Användaren är på Lägg till bok-sidan                # features/steps/common_steps.py:30 0.084s
+    When användaren fyller i "Författare" med "Kent Backdoor" # features/steps/common_steps.py:38 0.010s
+    Then Lägg till ny bok-knappen ska vara inaktiverad        # features/steps/lagg_till_bok_US3_tomma_falt_steps.py:4 0.005s
+
+  Scenario: Användaren skickar formuläret utan författare                  # features/lagg_till_bok_US3_tomma_falt.feature:9
+    Given Användaren är på Lägg till bok-sidan                             # features/steps/common_steps.py:30 0.093s
+    When användaren fyller i "Titel" med "Why Your Tests Are Lying to You" # features/steps/lagg_till_bok_US2_dublettcheck_steps.py:14 0.010s
+    Then Lägg till ny bok-knappen ska vara inaktiverad                     # features/steps/lagg_till_bok_US3_tomma_falt_steps.py:4 0.003s
+
+Feature: Formuläret återställs efter att en bok har lagts till # features/lagg_till_bok_US4_rensa_formularet.feature:1
+
+  Scenario: Formuläret rensas när en bok har lagts till                              # features/lagg_till_bok_US4_rensa_formularet.feature:3
+    Given Användaren är på Lägg till bok-sidan                                       # features/steps/common_steps.py:30 0.103s
+    And Användaren filler i titel och författare i formuläret                        # features/steps/lagg_till_bok_US4_rensa_formularet_steps.py:4 0.016s
+    When användaren klickar på knappen "Lägg till ny bok"                            # features/steps/lagg_till_bok_US4_rensa_formularet_steps.py:10 0.046s
+    Then boken sparas i katalogen                                                    # features/steps/lagg_till_bok_US4_rensa_formularet_steps.py:17 0.070s
+    And Formuläret rensas/återställs så att fälten "Titel" och "Författare" är tomma # features/steps/lagg_till_bok_US4_rensa_formularet_steps.py:29 0.063s
+
+Feature: Visa lista på favoritböcker # features/mina_bocker_US1_visa_favoriter.feature:1
+
+  Scenario: Välkomstmeddelande och favoritlista visas                    # features/mina_bocker_US1_visa_favoriter.feature:3
+    Given användaren är på sidan "Mina böcker"                           # features/steps/common_steps.py:54 0.073s
+    And att användaren har markerat minst en bok som favorit i katalogen # features/steps/mina_bocker_US1_visa_favoriter_steps.py:4 0.672s
+    Then ett välkomstmeddelande visas på skärmen                         # features/steps/common_steps.py:62 0.006s
+    And en ordnade lista över favoritböcker visas                        # features/steps/mina_bocker_US1_visa_favoriter_steps.py:22 0.005s
+
+Feature: Tom sida när inga favoritböcker har markerats # features/mina_bocker_US2_tom_sida.feature:1
+
+  Scenario: Inga favoriter markerade - tom lista visas          # features/mina_bocker_US2_tom_sida.feature:3
+    Given användaren är på sidan "Mina böcker"                  # features/steps/common_steps.py:54 0.076s
+    When att inga böcker är markerade som favoriter i katalogen # features/steps/mina_bocker_US2_tom_sida_steps.py:4 0.004s
+    Then ska favoritlistan vara tom                             # features/steps/mina_bocker_US2_tom_sida_steps.py:10 0.003s
+
+Feature: Listan uppdateras när en bok markeras eller avmarkeras som favorit # features/mina_bocker_US3_listan_uppdateras.feature:1
+
+  Scenario: En ny bok läggs till i listan när den markeras som favorit       # features/mina_bocker_US3_listan_uppdateras.feature:3
+    Given Användaren är på Katalog-sidan                                     # features/steps/common_steps.py:10 0.670s
+    And boken "Python för folk som hatar ormar" inte är markerad som favorit # features/steps/common_steps.py:69 0.038s
+    When användaren markerar "Python för folk som hatar ormar" som favorit   # features/steps/mina_bocker_US3_listan_uppdateras_steps.py:6 0.040s
+    And användaren navigerar till fliken "Mina böcker"                       # features/steps/common_steps.py:54 0.074s
+    Then boken "Python för folk som hatar ormar" visas i favoritlistan       # features/steps/mina_bocker_US3_listan_uppdateras_steps.py:24 0.207s
+
+  Scenario: En bok försvinner från listan när favorit avmarkeras             # features/mina_bocker_US3_listan_uppdateras.feature:11
+    Given Användaren är på Katalog-sidan                                     # features/steps/common_steps.py:10 0.686s
+    And att boken "Python för folk som hatar ormar" är markerad som favorit  # features/steps/mina_bocker_US3_listan_uppdateras_steps.py:6 0.079s
+    When användaren avmarkerar "Python för folk som hatar ormar" som favorit # features/steps/mina_bocker_US3_listan_uppdateras_steps.py:50 0.905s
+    And användaren navigerar till fliken "Mina böcker"                       # features/steps/common_steps.py:54 0.077s
+    Then ska "Python för folk som hatar ormar" inte visas i favoritlistan    # features/steps/mina_bocker_US3_listan_uppdateras_steps.py:66 0.015s
+
+Feature: Visa statistik över antal böcker i boklistan # features/statistik_US1_antal_bocker.feature:1
+
+  Scenario: Antal böcker visas korrekt på statistiksidan  # features/statistik_US1_antal_bocker.feature:3
+    Given att katalogen innehåller 13 böcker              # features/steps/statistik_US1_antal_bocker_steps.py:4 0.035s
+    When användaren är på sidan "Statistik"               # features/steps/common_steps.py:77 0.066s
+    Then ska texten "Listan har 13 böcker." visas         # features/steps/statistik_US1_antal_bocker_steps.py:13 0.005s
+
+12 features passed, 0 failed, 0 skipped
+14 scenarios passed, 0 failed, 0 skipped
+57 steps passed, 0 failed, 0 skipped
+Took 0min 8.209s
